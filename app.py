@@ -578,7 +578,26 @@ async def shutdown_event():
     logger.info("🛑 NEXUS YAHYA API SERVER SHUTTING DOWN")
     logger.info("=" * 80)
 
+# ==================== AI GENERATION ENDPOINT ====================
 
+class PromptInput(BaseModel):
+    prompt: str
+    max_tokens: Optional[int] = 500
+
+@app.post("/api/generate", tags=["AI Engine"])
+async def generate_code(data: PromptInput):
+    """
+    Doğal dilden kod veya metin üretme uç noktası
+    """
+    logger.info(f"Gelen AI isteği: {data.prompt}")
+    
+    return {
+        "success": True,
+        "input_prompt": data.prompt,
+        "generated_content": f"// '{data.prompt}' için üretilen örnek çıktı",
+        "timestamp": datetime.now().isoformat()
+        }
+        
 # ==================== MAIN ====================
 
 if __name__ == "__main__":
