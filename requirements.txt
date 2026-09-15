@@ -1,21 +1,12 @@
-# Web Framework
 fastapi
 uvicorn
 gunicorn
-
-# Data Processing
 pandas
 numpy
-
-# Utilities
 python-dotenv
 pydantic
 pydantic-settings
 requests
-
-# Logging
 python-json-logger
-
-# Production
 python-jose[cryptography]
 email-validator
